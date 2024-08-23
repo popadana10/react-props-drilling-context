@@ -5,7 +5,9 @@ import { getData } from "../services/apiRequests";
 export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
+    // This is where your state exists
     const [data, setData] = useState(null);
+    const [numbers, setNumbers] = useState("1, 2, 3, 4, 5");
 
     const fetchData = async () => {
         const response = await getData(url);
@@ -17,8 +19,8 @@ export const DataProvider = ({ children }) => {
     }, []);
 
     return (
-        <DataContext.Provider value={{ data, setData }}>
+        <DataContext.Provider value={{ data, setData, numbers, setNumbers }}>
             {children}
         </DataContext.Provider>
-    )
-}
+    );
+};
