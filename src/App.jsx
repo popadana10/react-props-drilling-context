@@ -1,9 +1,11 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DataProvider } from './contexts/DataContext';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './routes/Home';
 import Root from './routes/Root';
+import { DataProvider } from './contexts/DataContext';
 
 const theme = createTheme({
   palette: {
@@ -26,7 +28,7 @@ function App() {
           path: '/',
           element: <Home />,
         },
-    
+
       ],
     },
   ]);
@@ -34,7 +36,9 @@ function App() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <ThemeProvider theme={theme}>
-        <RouterProvider router={router}></RouterProvider>
+        <DataProvider>
+          <RouterProvider router={router}></RouterProvider>
+        </DataProvider>
       </ThemeProvider>
     </LocalizationProvider>
   );

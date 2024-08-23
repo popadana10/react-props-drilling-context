@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import { url } from "../api/api";
 import ComponentA from "../components/ComponentA";
 import { getData } from "../services/apiRequests";
+import useData from "../contexts/useData";
 
 // const data = await getData(url);
 
 // this is outside the component
 const Home = () => {
-  const [data, setData] = useState(null);
+  // const [data, setData] = useState(null);
+  const { data } = useData();
 
   const fetchData = async () => {
     const response = await getData(url);
