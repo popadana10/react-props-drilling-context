@@ -11,7 +11,7 @@ const ComponentC = (props) => {
     setOrders(data?.orders);
   }, [data]);
 
-  useEffect(() => {});
+  useEffect(() => { });
 
   const handleChange = (orderIndex, field) => (event) => {
     const newOrders = [...orders];

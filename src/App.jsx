@@ -5,7 +5,6 @@ import { DataProvider } from './contexts/DataContext';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './routes/Home';
 import Root from './routes/Root';
-import { DataProvider } from './contexts/DataContext';
 
 const theme = createTheme({
   palette: {
